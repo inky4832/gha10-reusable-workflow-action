@@ -23,6 +23,6 @@ jobs:
           ls ${{ github.workspace }} 
           echo Run Build  
 
-  deploy:  
+  use-reuse-deploy:  
     needs: build  
     uses:  ./.github/workflows/reusable.yml
