@@ -1,0 +1,28 @@
+name: Reusable action workflow  
+
+on: push  
+
+jobs:  
+  
+  test:
+    runs-on: ubuntu-latest  
+    steps:  
+      - name: Run Test  
+        run: |  
+          ls ${{ github.workspace }}  
+          echo Run Test  
+  
+  build: 
+    needs: test  
+    runs-on: ubuntu-latest  
+
+    steps:  
+      
+      - name: Run Build  
+        run: |  
+          ls ${{ github.workspace }} 
+          echo Run Build  
+
+  deploy:  
+    needs: build  
+    uses:  ./.github/workflows/reusable.yml
